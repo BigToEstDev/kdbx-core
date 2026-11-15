@@ -2,7 +2,7 @@
 
 A Rust library for reading, writing and merging KeePass KDBX 4 password databases.
 
-**Status:** the engine of the KeyVault apps (Android and desktop). Not published on crates.io; the API is
+**Status:** the engine of the KDBX Vault apps (Android and desktop). Not published on crates.io; the API is
 pre-1.0 and changes together with the apps.
 
 ## Features
@@ -42,7 +42,7 @@ the same way in our reader and writer cannot pass unnoticed.
 
 ## Usage
 
-The crates are not published. They are used by [KeyVault](https://github.com/BigToEstDev/keyvault)
+The crates are not published. They are used by [KDBX Vault](https://github.com/BigToEstDev/kdbx-vault)
 through a native bridge (JNI on Android, a shared library on desktop). To depend on them from another
 project, use a git dependency:
 
@@ -55,7 +55,7 @@ kdbx-rust-core = { git = "https://github.com/BigToEstDev/kdbx-rust-core" }
 
 Built and tested with Rust 1.98 (stable) on Windows x86_64 (MSVC); the exact toolchain is pinned in
 `rust-toolchain.toml` — install it with `rustup toolchain install`. Android builds go through the bridge in
-KeyVault, with `cargo-ndk`.
+KDBX Vault, with `cargo-ndk`.
 
 ```bash
 cargo test --workspace
@@ -91,7 +91,7 @@ This project descends from [onekeepass-core](https://github.com/OneKeePass/oneke
 licensed under the GPLv3. It has since been developed independently: the API, the cryptography layer, the XML
 handling and the tests have diverged, and upstream changes are not merged.
 
-The licence covers the code, not the name: "KeyVault" and its logo are not licensed under the GPLv3. Forks
+The licence covers the code, not the name: "KDBX Vault" and its logo are not licensed under the GPLv3. Forks
 are welcome under their own name.
 
 ## Acknowledgements
