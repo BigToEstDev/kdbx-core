@@ -7,6 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-15
+
+### Changed
+
+- The repository and the engine crate are renamed: `kdbx-rust-core` - `kdbx-core` (`crates/kdbx-core`, `use kdbx_core::`).
+  The code is the same as in 1.0.0.
+
 ## [1.0.0] - 2026-11-14
 
 The first version of the core under its own numbering; the engine and its command api share one version.
@@ -20,5 +27,6 @@ The first version of the core under its own numbering; the engine and its comman
 - A password generator.
 - `pass-api`: the command api the apps call - json in, json out - and `CORE_VERSION`.
 
-[Unreleased]: https://github.com/BigToEstDev/kdbx-core/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/BigToEstDev/kdbx-core/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/BigToEstDev/kdbx-core/releases/tag/v1.0.1
 [1.0.0]: https://github.com/BigToEstDev/kdbx-core/releases/tag/v1.0.0
