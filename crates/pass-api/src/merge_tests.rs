@@ -412,7 +412,7 @@ fn the_other_database_is_not_left_open() {
         "the other file has no place in the store"
     );
     assert!(
-        kdbx_rust_core::db_service::KeyStoreOperation::get_key("").is_none(),
+        kdbx_core::db_service::KeyStoreOperation::get_key("").is_none(),
         "nor its keys in the key store"
     );
 

@@ -17,7 +17,7 @@ use std::io::Cursor;
 
 use serde::{Deserialize, Serialize};
 
-use kdbx_rust_core::db_service::{self, NewDatabase};
+use kdbx_core::db_service::{self, NewDatabase};
 
 use crate::commands::Command;
 use crate::dispatch::Answer;

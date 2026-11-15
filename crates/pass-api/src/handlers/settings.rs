@@ -11,7 +11,7 @@
 
 use serde::{Deserialize, Serialize};
 
-use kdbx_rust_core::db_service::{self, DbSettings};
+use kdbx_core::db_service::{self, DbSettings};
 
 use crate::commands::Command;
 use crate::dispatch::Answer;

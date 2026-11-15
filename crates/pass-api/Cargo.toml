@@ -1,7 +1,7 @@
 [package]
 name = "pass-api"
 version.workspace = true
-description = "The command api of kdbx-rust-core for the KDBX Vault apps: json in, json out"
+description = "The command api of kdbx-core for the KDBX Vault apps: json in, json out"
 authors.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -10,7 +10,7 @@ license.workspace = true
 publish = false
 
 [dependencies]
-kdbx-rust-core = { path = "../kdbx-rust-core" }
+kdbx-core = { path = "../kdbx-core" }
 
 ## Wiping buffers that held a password.
 zeroize.workspace = true

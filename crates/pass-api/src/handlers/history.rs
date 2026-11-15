@@ -6,7 +6,7 @@
 
 use serde::Deserialize;
 
-use kdbx_rust_core::db_service;
+use kdbx_core::db_service;
 use uuid::Uuid;
 
 use crate::commands::Command;

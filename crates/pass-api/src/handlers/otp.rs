@@ -12,8 +12,8 @@
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use kdbx_rust_core::db_content::OtpAlgorithm;
-use kdbx_rust_core::db_service::{self, OtpSettings};
+use kdbx_core::db_content::OtpAlgorithm;
+use kdbx_core::db_service::{self, OtpSettings};
 
 use crate::commands::Command;
 use crate::dispatch::Answer;

@@ -15,7 +15,7 @@ use base64::Engine;
 use serde::Deserialize;
 use zeroize::Zeroize;
 
-use kdbx_rust_core::db_service::{Error, FileKey, KEY_FILE_MAX_SIZE};
+use kdbx_core::db_service::{Error, FileKey, KEY_FILE_MAX_SIZE};
 
 use crate::errors::ErrorPayload;
 

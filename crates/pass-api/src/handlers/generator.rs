@@ -5,7 +5,7 @@
 
 use serde::Serialize;
 
-use kdbx_rust_core::db_service::PasswordGenerationOptions;
+use kdbx_core::db_service::PasswordGenerationOptions;
 
 use crate::commands::Command;
 use crate::dispatch::Answer;

@@ -14,9 +14,7 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use zeroize::Zeroizing;
 
-use kdbx_rust_core::db_service::{
-    self, EntryCategory, EntryCloneOption, EntryFormData, NewAttachment,
-};
+use kdbx_core::db_service::{self, EntryCategory, EntryCloneOption, EntryFormData, NewAttachment};
 
 use crate::commands::Command;
 use crate::dispatch::Answer;

@@ -20,5 +20,5 @@ The first version of the core under its own numbering; the engine and its comman
 - A password generator.
 - `pass-api`: the command api the apps call - json in, json out - and `CORE_VERSION`.
 
-[Unreleased]: https://github.com/BigToEstDev/kdbx-rust-core/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/BigToEstDev/kdbx-rust-core/releases/tag/v1.0.0
+[Unreleased]: https://github.com/BigToEstDev/kdbx-core/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/BigToEstDev/kdbx-core/releases/tag/v1.0.0
