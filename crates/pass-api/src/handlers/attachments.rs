@@ -10,8 +10,8 @@
 use serde::{Deserialize, Serialize};
 use zeroize::Zeroizing;
 
-use kdbx_rust_core::db_content::AttachmentHashValue;
-use kdbx_rust_core::db_service::{self, NewAttachment};
+use kdbx_core::db_content::AttachmentHashValue;
+use kdbx_core::db_service::{self, NewAttachment};
 
 use crate::commands::Command;
 use crate::dispatch::Answer;
@@ -22,7 +22,7 @@ use crate::handlers::{args, reject_bytes};
 #[derive(Deserialize)]
 struct AttachmentArgs {
     db_key: String,
-    #[serde(with = "kdbx_rust_core::service_util::from_or_to::string")]
+    #[serde(with = "kdbx_core::service_util::from_or_to::string")]
     data_hash: AttachmentHashValue,
 }
 

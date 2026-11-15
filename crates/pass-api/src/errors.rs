@@ -14,7 +14,7 @@
 
 use serde::Serialize;
 
-use kdbx_rust_core::error::Error;
+use kdbx_core::error::Error;
 
 #[derive(Serialize, Debug)]
 pub(crate) struct ErrorPayload {
@@ -85,7 +85,7 @@ pub(crate) fn err_envelope(payload: &ErrorPayload) -> String {
 #[cfg(test)]
 mod tests {
     use super::{err_envelope, error_kind, ok_envelope, ErrorPayload};
-    use kdbx_rust_core::error::Error;
+    use kdbx_core::error::Error;
 
     #[test]
     fn a_unit_variant_gives_its_own_name_as_the_kind() {

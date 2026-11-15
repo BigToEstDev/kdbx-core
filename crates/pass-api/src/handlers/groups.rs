@@ -14,7 +14,7 @@
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use kdbx_rust_core::db_service::{self, Group, GroupSortCriteria};
+use kdbx_core::db_service::{self, Group, GroupSortCriteria};
 
 use crate::commands::Command;
 use crate::dispatch::Answer;

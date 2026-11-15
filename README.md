@@ -1,8 +1,8 @@
-# kdbx-rust-core
+# kdbx-core
 
 A Rust library for reading, writing and merging KeePass KDBX 4 password databases.
 
-**Status:** the engine of the KeyVault apps (Android and desktop). Not published on crates.io; the API is
+**Status:** the engine of the KDBX Vault apps (Android and desktop). Not published on crates.io; the API is
 pre-1.0 and changes together with the apps.
 
 ## Features
@@ -36,26 +36,26 @@ the same way in our reader and writer cannot pass unnoticed.
 
 | Path | Contents |
 |---|---|
-| `crates/kdbx-rust-core` | The engine: the KDBX format, cryptography, database content, merge |
+| `crates/kdbx-core` | The engine: the KDBX format, cryptography, database content, merge |
 | `crates/pass-api` | The command API the apps call: a command name and JSON arguments in, a JSON result out. Shared by the Android and desktop apps, with its contract files in `contract/` |
 | `tools/kdbx-oracle` | Python scripts on pykeepass: fixture generation and save round-trip checks |
 
 ## Usage
 
-The crates are not published. They are used by [KeyVault](https://github.com/BigToEstDev/keyvault)
+The crates are not published. They are used by [KDBX Vault](https://github.com/BigToEstDev/kdbx-vault)
 through a native bridge (JNI on Android, a shared library on desktop). To depend on them from another
 project, use a git dependency:
 
 ```toml
 [dependencies]
-kdbx-rust-core = { git = "https://github.com/BigToEstDev/kdbx-rust-core" }
+kdbx-core = { git = "https://github.com/BigToEstDev/kdbx-core" }
 ```
 
 ## Building and testing
 
 Built and tested with Rust 1.98 (stable) on Windows x86_64 (MSVC); the exact toolchain is pinned in
 `rust-toolchain.toml` — install it with `rustup toolchain install`. Android builds go through the bridge in
-KeyVault, with `cargo-ndk`.
+KDBX Vault, with `cargo-ndk`.
 
 ```bash
 cargo test --workspace
@@ -75,9 +75,9 @@ to a file. It is off by default, not part of the API, and enabled for the test b
 - No network access: the library works with the bytes of a database and its key file only.
 
 **Reporting a vulnerability:** please use
-[private vulnerability reporting](https://github.com/BigToEstDev/kdbx-rust-core/security/advisories/new) on
+[private vulnerability reporting](https://github.com/BigToEstDev/kdbx-core/security/advisories/new) on
 GitHub, not a public issue. Other bugs and questions go to
-[issues](https://github.com/BigToEstDev/kdbx-rust-core/issues).
+[issues](https://github.com/BigToEstDev/kdbx-core/issues).
 
 ## Contributing
 
@@ -91,7 +91,7 @@ This project descends from [onekeepass-core](https://github.com/OneKeePass/oneke
 licensed under the GPLv3. It has since been developed independently: the API, the cryptography layer, the XML
 handling and the tests have diverged, and upstream changes are not merged.
 
-The licence covers the code, not the name: "KeyVault" and its logo are not licensed under the GPLv3. Forks
+The licence covers the code, not the name: "KDBX Vault" and its logo are not licensed under the GPLv3. Forks
 are welcome under their own name.
 
 ## Acknowledgements

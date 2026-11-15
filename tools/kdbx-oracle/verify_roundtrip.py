@@ -33,7 +33,7 @@ from pykeepass.kdbx_parsing.kdbx4 import kdf_uuids
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
-# Должно совпадать с константами в crates/kdbx-rust-core/examples/write_roundtrip_dbs.rs
+# Должно совпадать с константами в crates/kdbx-core/examples/write_roundtrip_dbs.rs
 PASSWORD = "test-pass-1234"
 ATTACHMENT_NAME = "notes.txt"
 ATTACHMENT_DATA = b"example doc\n2 lines\n"
@@ -83,7 +83,7 @@ def write_databases(out_dir):
             "run",
             "--quiet",
             "-p",
-            "kdbx-rust-core",
+            "kdbx-core",
             "--example",
             "write_roundtrip_dbs",
             "--",

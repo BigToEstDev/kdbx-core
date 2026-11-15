@@ -11,8 +11,8 @@
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
-use kdbx_rust_core::db_service::{KeyStoreOperation, KeyStoreService};
-use kdbx_rust_core::error::Result;
+use kdbx_core::db_service::{KeyStoreOperation, KeyStoreService};
+use kdbx_core::error::Result;
 
 #[derive(Default)]
 struct InMemoryKeyStore {
@@ -50,7 +50,7 @@ pub(crate) fn install() {
 #[cfg(test)]
 mod tests {
     use super::InMemoryKeyStore;
-    use kdbx_rust_core::db_service::KeyStoreService;
+    use kdbx_core::db_service::KeyStoreService;
 
     #[test]
     fn a_stored_key_is_returned_and_a_deleted_one_is_not() {

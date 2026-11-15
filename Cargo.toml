@@ -2,18 +2,18 @@
 ## here - members, shared dependency versions and profiles. The crates are in crates/.
 [workspace]
 resolver = "2"
-members = ["crates/kdbx-rust-core", "crates/pass-api"]
+members = ["crates/kdbx-core", "crates/pass-api"]
 
 [workspace.package]
 ## The version of the core - one for every crate of the workspace, the engine and its api move together
 ## (pass-docs, Step 123). SemVer; the app shows it on its screen "About".
-version = "1.0.0"
+version = "1.0.1"
 authors = ["BigToEstDev"]
 edition = "2021"
 ## The oldest Rust the workspace is built and tested with - not a lower bound found by a tool. The exact
 ## toolchain is pinned in rust-toolchain.toml.
 rust-version = "1.98"
-repository = "https://github.com/BigToEstDev/kdbx-rust-core"
+repository = "https://github.com/BigToEstDev/kdbx-core"
 ## One licence for every crate of the workspace: the engine descends from GPLv3 code (README.md,
 ## "Origin and licence"), and pass-api links it, so both are GPL-3.0.
 license = "GPL-3.0-only"

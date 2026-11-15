@@ -557,7 +557,7 @@ fn a_database_with_a_key_file_is_not_opened_without_it_or_with_another_one() {
 fn a_key_file_over_the_limit_is_refused_with_its_own_kind() {
     prepare();
     let db_key = key_of("key-file-too-large");
-    let content = vec![0u8; kdbx_rust_core::db_service::KEY_FILE_MAX_SIZE as usize + 1];
+    let content = vec![0u8; kdbx_core::db_service::KEY_FILE_MAX_SIZE as usize + 1];
 
     let refused = run_with_bytes(
         "create_and_write_to_writer",
