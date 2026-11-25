@@ -851,7 +851,51 @@ impl Root {
         Ok(())
     }
 
-    /// Moves a group from one parent group to another group
+    /// A move the user asks for (Step 134): the moved group and the new parent are both living groups - not the
+    /// recycle bin, nor in it - and the root stays where it is. The bin is reached by deleting, not by a move;
+    /// a merge and the bin itself move groups through [`Root::move_group`], without these limits
+    pub(crate) fn move_living_group(
+        &mut self,
+        group_uuid: Uuid,
+        new_parent_id: Uuid,
+    ) -> Result<()> {
+        verify_uuid!(self, group_uuid, all_groups);
+        verify_uuid!(self, new_parent_id, all_groups);
+
+        if group_uuid == self.root_uuid {
+            return Err(Error::DataError("The root group cannot be moved"));
+        }
+        if !self.is_active_group(&group_uuid) {
+            return Err(Error::DataError(
+                "The recycle bin and the groups in it cannot be moved",
+            ));
+        }
+        if !self.is_active_group(&new_parent_id) {
+            return Err(Error::DataError(
+                "A group cannot be moved into the recycle bin or a group in it",
+            ));
+        }
+        self.move_group(group_uuid, new_parent_id)
+    }
+
+    /// Whether [group_uuid] lies under [ancestor_uuid], at any depth. The walk up stops after as many steps as
+    /// there are groups: a loop of parents in a foreign file cannot hang it
+    fn is_under(&self, group_uuid: &Uuid, ancestor_uuid: &Uuid) -> bool {
+        let mut current = *group_uuid;
+        for _ in 0..self.all_groups.len() {
+            match self.all_groups.get(&current) {
+                Some(group) if group.parent_group_uuid == *ancestor_uuid => return true,
+                Some(group) if group.parent_group_uuid != Uuid::default() => {
+                    current = group.parent_group_uuid
+                }
+                _ => return false,
+            }
+        }
+        false
+    }
+
+    /// Moves a group from one parent group to another group. Never into its own subtree: the group and all
+    /// under it would lose the way to the root, and the file with them
     pub fn move_group(&mut self, group_uuid: Uuid, new_parent_id: Uuid) -> Result<()> {
         verify_uuid!(self, group_uuid, all_groups);
         verify_uuid!(self, new_parent_id, all_groups);
@@ -859,6 +903,11 @@ impl Root {
         if group_uuid == new_parent_id {
             return Err(Error::DataError(
                 "The group and its parent group cannot be the same",
+            ));
+        }
+        if self.is_under(&new_parent_id, &group_uuid) {
+            return Err(Error::DataError(
+                "A group cannot be moved into a group of its own subtree",
             ));
         }
 

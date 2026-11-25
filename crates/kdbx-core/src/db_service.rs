@@ -1086,9 +1086,11 @@ pub fn delete_group(db_key: &str, group_uuid: Uuid) -> Result<()> {
     })
 }
 
+/// Moves a living group with all it holds under another living group. Not the root, not the recycle bin or
+/// into it, not into its own subtree (Step 134): such a move is refused and nothing changes
 pub fn move_group(db_key: &str, group_uuid: Uuid, new_parent_id: Uuid) -> Result<()> {
     main_content_mut_action!(db_key, move |k: &mut KeepassFile| {
-        k.root.move_group(group_uuid, new_parent_id)
+        k.root.move_living_group(group_uuid, new_parent_id)
     })
 }
 
